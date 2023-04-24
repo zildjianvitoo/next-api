@@ -10,6 +10,9 @@ export default function handler(req, res) {
 
     comments.splice(index, 1);
     const newComment = comments.filter((comment) => comment.id != commentId);
-    res.status(200).json(newComment);
+    res.status(200).json({
+      message: "Berhasil: DELETE comment dengan ID " + commentId,
+      newComment,
+    });
   }
 }

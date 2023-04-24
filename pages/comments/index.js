@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 
 export default function CommentsPage() {
@@ -33,9 +34,9 @@ export default function CommentsPage() {
     const res = await fetch(`/api/comments/${id}`, {
       method: "DELETE",
     });
-    const data = await res.json();
+    const { newComment } = await res.json();
 
-    setComments(data);
+    setComments(newComment);
   };
 
   return (
@@ -79,9 +80,11 @@ export default function CommentsPage() {
         {comments.map((comment) => (
           <li key={comment.id} style={{ marginTop: "1rem" }}>
             <h2>{comment.name}</h2>
-            <h3>
-              {comment.id}, {comment.text}
-            </h3>
+            <Link href={`/comments/${comment.id}`}>
+              <h3>
+                {comment.id}, {comment.text}
+              </h3>
+            </Link>
             <button
               style={{ padding: "2px" }}
               onClick={() => deleteComment(comment.id)}
