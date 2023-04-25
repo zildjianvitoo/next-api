@@ -1,9 +1,15 @@
 import { comments } from "@/data/comments";
 import Link from "next/link";
+import Header from "@/components/Header";
+import Head from "next/head";
 
 export default function CommentDetail({ comment }) {
   return (
     <>
+      <Head>
+        <title>Detail comment {comment.id}</title>
+        <meta property="og:title" content="My page title" key="title" />
+      </Head>
       <h1>
         {comment.id} {comment.name}
       </h1>
@@ -36,3 +42,12 @@ export async function getStaticPaths() {
     fallback: "blocking",
   };
 }
+
+CommentDetail.getLayout = function getLayout(page) {
+  return (
+    <>
+      <Header />
+      {page}
+    </>
+  );
+};
