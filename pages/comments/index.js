@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -41,6 +42,9 @@ export default function CommentsPage() {
 
   return (
     <>
+      <Head>
+        <title>List of Comments</title>
+      </Head>
       <form
         style={{
           display: "flex",

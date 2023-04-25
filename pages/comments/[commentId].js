@@ -25,6 +25,12 @@ export async function getStaticProps({ params }) {
   const { commentId } = params;
   const comment = comments.find((comment) => comment.id == commentId);
 
+  if (!comment) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       comment,
