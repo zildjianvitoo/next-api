@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 function Navbar() {
   const { data: session, status } = useSession();
-
+  const router = useRouter();
   const handleSignIn = (e) => {
     e.preventDefault();
     signIn("github");
@@ -11,7 +12,10 @@ function Navbar() {
 
   const handleSignOut = (e) => {
     e.preventDefault();
-    signOut();
+    setTimeout(() => {
+      signOut();
+    }, 1000);
+    router.push("/");
   };
 
   return (

@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import Navbar from "@/components/Navbar";
 import "@/components/Navbar.css";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, getSession } from "next-auth/react";
 
 export default function App({
   Component,
