@@ -9,7 +9,6 @@ export default function Dashboard() {
     },
   });
 
-  console.log({ status });
   if (!session) {
     return null;
   }
