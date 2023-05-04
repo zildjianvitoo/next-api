@@ -25,7 +25,7 @@ export default function SearchNewsPage({ articless }: SearchNewsPageProps) {
       setLoading(false);
       const { articles } = data;
       let newsArticles = [];
-      newsArticles = articles?.filter((art: any) => {
+      newsArticles = articles.filter((art: any) => {
         return art.title?.toLowerCase().includes(input.toLowerCase());
       });
 
