@@ -1,8 +1,12 @@
+import { useRouter } from "next/router";
 import React from "react";
 
-type Props = {};
+type Props = {
+  message?: string;
+};
 
-export default function Alert({}: Props) {
+export default function Alert({ message = "ServerSideRendering" }: Props) {
+  const router = useRouter();
   return (
     <>
       <div className="alert shadow-lg mt-8 w-[80%] mx-auto  ">
@@ -24,9 +28,20 @@ export default function Alert({}: Props) {
           </label>
           <span className="text-xs lg:text-base leading-relaxed">
             Page ini dibuat menggunakan
-            <span className="font-semibold"> ServerSideRendering</span> dari
+            <span className="font-semibold"> {message}</span> dari
             <span className="font-semibold"> Next JS</span> +{" "}
             <span className="font-semibold text-gradient">Daisy UI.</span>
+            {router.pathname !== "/" && (
+              <>
+                {" "}
+                Dan data yang ditampilkan akan selalu diperbarui menggunakan{" "}
+                <span className="font-semibold">
+                  Incremental Static Generation{" "}
+                </span>
+                yang memungkinkan data akan diperbarui{" "}
+                <span className="font-semibold">setiap 10 menit sekali</span>
+              </>
+            )}
           </span>
         </div>
       </div>

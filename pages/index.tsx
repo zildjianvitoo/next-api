@@ -5,6 +5,7 @@ import { NewsArticle, NewsResponse } from "@/models/NewsArticle";
 import Axios from "axios";
 import Card from "@/components/Card";
 import Alert from "@/components/Alert";
+import NewsGrid from "@/components/NewsGrid";
 
 interface HomeProps {
   articles: NewsArticle[];
@@ -23,20 +24,7 @@ export default function Home({ articles }: HomeProps) {
             Breaking News
           </h1>
           <Alert />
-          <div className="flex px-4 flex-wrap justify-center gap-x-10 ">
-            {articles.map((article: NewsArticle) => {
-              return (
-                <Card
-                  key={article.title}
-                  title={article.title}
-                  image={article.urlToImage}
-                  url={article.url}
-                  description={article.description}
-                  publishedAt={article.publishedAt}
-                />
-              );
-            })}
-          </div>
+          <NewsGrid articles={articles} />
         </div>
       </section>
     </>

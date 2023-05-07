@@ -29,10 +29,13 @@ export default function Navbar({}: Props) {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link href="/">Breaking</Link>
+              <Link href="/">Breaking News</Link>
             </li>
             <li>
-              <Link href="/search">Search Link</Link>
+              <Link href="/search-news">Search News</Link>
+            </li>
+            <li>
+              <Link href="/search-apple-news">Search Apple News</Link>
             </li>
             <li tabIndex={0}>
               <a className="justify-between">
@@ -48,11 +51,20 @@ export default function Navbar({}: Props) {
                 </svg>
               </a>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
+                <li className="bg-[#2A303C] rounded-none">
+                  <Link href="/category/technology">Technology</Link>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li className="bg-[#2A303C]">
+                  <Link href="/category/business">Business</Link>
+                </li>
+                <li className="bg-[#2A303C]">
+                  <Link href="/category/general">General</Link>
+                </li>
+                <li className="bg-[#2A303C]">
+                  <Link href="/category/health">Health</Link>
+                </li>
+                <li className="bg-[#2A303C]">
+                  <Link href="/category/science">Science</Link>
                 </li>
               </ul>
             </li>
@@ -63,12 +75,15 @@ export default function Navbar({}: Props) {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link href="/">Breaking</Link>
+            <Link href="/">Breaking News</Link>
+          </li>
+          <li>
+            <Link href="/search-news">Search News</Link>
+          </li>
+          <li>
+            <Link href="/search-apple-news">Search Apple News</Link>
           </li>
 
-          <li>
-            <Link href="/search">Search Link</Link>
-          </li>
           <li tabIndex={0}>
             <a>
               Category
@@ -82,12 +97,21 @@ export default function Navbar({}: Props) {
                 <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
               </svg>
             </a>
-            <ul className="p-2">
-              <li>
-                <a>Submenu 1</a>
+            <ul className="p-2 ">
+              <li className="bg-[#2A303C] rounded-none">
+                <Link href="/category/technology">Technology</Link>
               </li>
-              <li>
-                <a>Submenu 2</a>
+              <li className="bg-[#2A303C]">
+                <Link href="/category/business">Business</Link>
+              </li>
+              <li className="bg-[#2A303C]">
+                <Link href="/category/general">General</Link>
+              </li>
+              <li className="bg-[#2A303C]">
+                <Link href="/category/health">Health</Link>
+              </li>
+              <li className="bg-[#2A303C]">
+                <Link href="/category/science">Science</Link>
               </li>
             </ul>
           </li>

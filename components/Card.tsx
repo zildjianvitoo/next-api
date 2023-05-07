@@ -18,6 +18,7 @@ export default function Card({
   url,
   publishedAt,
 }: CardProps) {
+  const validDesc = description?.length > 0 ? description : null;
   return (
     <div className="z-0 mt-16 card w-[455px] lg:w-[435px] bg-white shadow-xl text-black">
       <figure>
