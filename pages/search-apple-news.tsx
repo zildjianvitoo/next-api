@@ -76,10 +76,3 @@ export default function SearchNewsPage() {
     </>
   );
 }
-
-// export const getStaticProps: GetStaticProps<SearchNewsPageProps> = async () => {
-//   const { data } = await Axios.get<NewsResponse>(
-//     `https://newsapi.org/v2/everything?q=apple&from=2023-05-03&to=2023-05-03&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`
-//   );
-//   const { articles } = data;
-// };
