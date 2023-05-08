@@ -1,9 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {};
 
 export default function Navbar({}: Props) {
+  const router = useRouter();
+  const finalSlashIndex = router.asPath.lastIndexOf("/");
+  const previousPath = router.asPath.slice(0, finalSlashIndex);
+
   return (
     <div className="navbar bg-base-100 z-50 shadow-lg fixed">
       <div className="navbar-start">
@@ -34,8 +39,10 @@ export default function Navbar({}: Props) {
             <li>
               <Link href="/search-news">Search News</Link>
             </li>
-            <li>
-              <Link href="/search-apple-news">Search Apple News</Link>
+            <li className="disabled cursor-not-allowed">
+              <Link href="/search-apple-news" className="pointer-events-none">
+                Search Apple News
+              </Link>
             </li>
             <li tabIndex={0}>
               <a className="justify-between">
@@ -80,8 +87,10 @@ export default function Navbar({}: Props) {
           <li>
             <Link href="/search-news">Search News</Link>
           </li>
-          <li>
-            <Link href="/search-apple-news">Search Apple News</Link>
+          <li className="disabled cursor-not-allowed">
+            <Link href="/search-apple-news" className="pointer-events-none">
+              Search Apple News
+            </Link>
           </li>
 
           <li tabIndex={0}>

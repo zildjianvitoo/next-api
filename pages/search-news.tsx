@@ -10,7 +10,6 @@ type Props = {};
 export default function SearchNews({}: Props) {
   const [searchResults, setSearchResults] = useState<NewsArticle[]>([]);
   const [isLoading, setLoading] = useState<boolean>(false);
-  const [input, setInput] = useState<String>("");
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

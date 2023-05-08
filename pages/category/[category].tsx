@@ -26,7 +26,7 @@ export default function Category({ articles }: CategoryProps) {
             Category: {category}
           </h1>
           <Alert message="StaticSideRendering" />
-          <NewsGrid articles={articles.slice(8, 23)} />
+          <NewsGrid articles={articles.slice(15, 28)} />
         </div>
       </section>
     </>

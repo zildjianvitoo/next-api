@@ -3,31 +3,37 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import NewsGrid from "@/components/NewsGrid";
+import { useRouter } from "next/router";
 
 export default function SearchNewsPage() {
   const [searchResults, setSearchResults] = useState<NewsArticle[]>([]);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
+  const router = useRouter();
 
   useEffect(() => {
-    const fetchArticles = async () => {
-      if (!input) {
-        return;
-      }
-      setSearchResults([]);
-      setLoading(true);
-      const { data } = await Axios.get<NewsResponse>(
-        `https://newsapi.org/v2/everything?q=apple&from=2023-05-03&to=2023-05-03&sortBy=popularity&apiKey=ef07f09ec4ae4d66a2227dc810e7748b`
-      );
-      setLoading(false);
-      const { articles } = data;
-      let newsArticles = [];
-      newsArticles = articles?.filter((art: any) => {
-        return art.title?.toLowerCase().includes(input.toLowerCase());
-      });
+    router.push("/");
+  }, []);
 
-      setSearchResults(newsArticles?.slice(0, 14));
-    };
+  const fetchArticles = async () => {
+    if (!input) {
+      return;
+    }
+    setSearchResults([]);
+    setLoading(true);
+    const { data } = await Axios.get<NewsResponse>(
+      `https://newsapi.org/v2/everything?q=apple&from=2023-05-03&to=2023-05-03&sortBy=popularity&apiKey=ef07f09ec4ae4d66a2227dc810e7748b`
+    );
+    setLoading(false);
+    const { articles } = data;
+    const newsArticles = articles?.filter((art: any) => {
+      return art.title?.toLowerCase().includes(input.toLowerCase());
+    });
+
+    setSearchResults(newsArticles?.slice(0, 14));
+  };
+
+  useEffect(() => {
     fetchArticles();
   }, [input]);
 
@@ -40,6 +46,7 @@ export default function SearchNewsPage() {
       setInput(inputQuery);
     }
   };
+
   return (
     <>
       <Head>
