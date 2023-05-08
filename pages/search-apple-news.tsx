@@ -1,11 +1,7 @@
 import { NewsArticle, NewsResponse } from "@/models/NewsArticle";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { GetStaticProps } from "next";
-import { FormEvent } from "react";
 import Axios from "axios";
-import Card from "@/components/Card";
-import Modal from "@/components/Modal";
 import NewsGrid from "@/components/NewsGrid";
 
 export default function SearchNewsPage() {
