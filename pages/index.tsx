@@ -39,7 +39,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const validMonth = month < 10 ? `0${month}` : month;
 
   const { data } = await Axios.get<NewsResponse>(
-    `https://newsapi.org/v2/everything?q=apple&from=2023-06-14&to=2023-${validMonth}-${validDay}&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?q=apple&from=2023-${validMonth}-${validDay}&to=2023-${validMonth}-${validDay}&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`
   );
   const { articles } = data;
   return {
