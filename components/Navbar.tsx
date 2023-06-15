@@ -5,18 +5,14 @@ import { useRouter } from "next/router";
 type Props = {};
 
 export default function Navbar({}: Props) {
-  const router = useRouter();
-  const finalSlashIndex = router.asPath.lastIndexOf("/");
-  const previousPath = router.asPath.slice(0, finalSlashIndex);
-
   return (
-    <div className="navbar bg-base-100 z-50 shadow-lg fixed">
+    <div className="fixed z-50 shadow-lg navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -31,7 +27,7 @@ export default function Navbar({}: Props) {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
               <Link href="/">Breaking News</Link>
@@ -39,7 +35,7 @@ export default function Navbar({}: Props) {
             <li>
               <Link href="/search-news">Search News</Link>
             </li>
-            <li className="disabled cursor-not-allowed">
+            <li className="cursor-not-allowed disabled">
               <Link href="/search-apple-news" className="pointer-events-none">
                 Search Apple News
               </Link>
@@ -77,17 +73,17 @@ export default function Navbar({}: Props) {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">VitoNews</a>
+        <a className="text-xl normal-case btn btn-ghost">VitoNews</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="hidden navbar-center lg:flex">
+        <ul className="px-1 menu menu-horizontal">
           <li>
             <Link href="/">Breaking News</Link>
           </li>
           <li>
             <Link href="/search-news">Search News</Link>
           </li>
-          <li className="disabled cursor-not-allowed">
+          <li className="cursor-not-allowed disabled">
             <Link href="/search-apple-news" className="pointer-events-none">
               Search Apple News
             </Link>

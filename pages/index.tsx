@@ -32,8 +32,14 @@ export default function Home({ articles }: HomeProps) {
 }
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const day = new Date().getDate() - 3;
+  const month = new Date().getMonth() + 1;
+
+  const validDay = day < 10 ? `0${day}` : day;
+  const validMonth = month < 10 ? `0${month}` : month;
+
   const { data } = await Axios.get<NewsResponse>(
-    `https://newsapi.org/v2/everything?q=apple&from=2023-05-03&to=2023-05-03&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?q=apple&from=2023-06-14&to=2023-${validMonth}-${validDay}&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`
   );
   const { articles } = data;
   return {
